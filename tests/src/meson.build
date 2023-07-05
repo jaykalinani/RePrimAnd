@@ -15,6 +15,14 @@ exe_tst_c2p = executable('test_c2p', sources : src_tst_c2p,
 test('Con2Prim', exe_tst_c2p, timeout : 90)
 
 
+src_tst_p2c = ['prim2con_mhd.cc', 'test_utils.cc']
+
+exe_tst_p2c = executable('test_p2c', sources : src_tst_p2c,
+                      dependencies : [dep_reprim, dep_utf],
+                      cpp_args : '-DBOOST_TEST_DYN_LINK')
+
+test('Prim2Con', exe_tst_p2c)
+
 src_tst_eos = ['test_eos.cc', 'test_utils.cc']
 
 exe_tst_eos = executable('test_eos', sources : src_tst_eos, 
